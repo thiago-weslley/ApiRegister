@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import uuid from "uuid";
 
 const app = express();
 app.use(express.json());
@@ -34,7 +33,7 @@ app.get("/users", (req, res) => {
 app.post("/users", (req, res) => {
   const { name, age } = req.body;
 
-  const user = { id: uuid.v4(), name, age };
+  const user = { id: Math.random().toString(36), name, age };
 
   users.push(user);
 
